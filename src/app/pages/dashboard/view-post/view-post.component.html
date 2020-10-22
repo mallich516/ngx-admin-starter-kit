@@ -1,0 +1,11 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="primary">
+    <nb-card-body *ngIf="success">
+        <h3>View Post</h3>
+        <p>postId : {{ post.userId }}</p>
+        <p>Id : {{ post.id }}</p>
+        <p>Title : {{ post.title }}</p>
+        <p>Body : {{ post.body }}</p>
+        <button nbButton hero="true" status="primary" (click)="goBack()">Back</button>
+    </nb-card-body>
+</nb-card>
+

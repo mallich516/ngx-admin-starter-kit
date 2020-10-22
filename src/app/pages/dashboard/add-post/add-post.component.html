@@ -1,0 +1,132 @@
+<nb-card>
+  <nb-card-body class="scrollable-container">
+    <div class="mt-2">
+      <span class="h4 ml-5">Add Post</span>
+    </div>
+    <form [formGroup]="postForm" (ngSubmit)="submit()">
+      <div class="d-flex justify-content-center flex-column">
+        <div class="form-group mt-3 ml-5 mr-5">
+          <label for="userId">User Id</label>
+          <input
+            type="text"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="userId"
+            name="userId"
+            placeholder="User Id"
+            formControlName="userId"
+            required
+            [status]="
+              f.userId.dirty || f.userId.touched
+                ? f.userId.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <nb-container *ngIf="f.userId.invalid && f.userId.touched">
+            <span
+              class="caption status-danger"
+              *ngIf="f.userId.errors?.required"
+              >User Id is required!</span
+            >
+          </nb-container>
+        </div>
+        <div class="form-group mt-2 ml-5 mr-5">
+          <label for="id">Id</label>
+          <input
+            type="text"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="id"
+            name="id"
+            placeholder="Id"
+            formControlName="id"
+            required
+            [status]="
+              f.id.dirty || f.id.touched
+                ? f.id.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <nb-container *ngIf="f.id.invalid && f.id.touched">
+            <span class="caption status-danger" *ngIf="f.id.errors?.required"
+              >Id is required!</span
+            >
+          </nb-container>
+        </div>
+        <div class="form-group mt-2 ml-5 mr-5">
+          <label for="title">Title</label>
+          <input
+            type="title"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="title"
+            name="title"
+            placeholder="Title"
+            formControlName="title"
+            required
+            [status]="
+              f.title.dirty || f.title.touched
+                ? f.title.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <nb-container *ngIf="f.title.invalid && f.title.touched">
+            <span class="caption status-danger" *ngIf="f.title.errors?.required"
+              >Title is required!</span
+            >
+          </nb-container>
+        </div>
+        <div class="form-group mt-2 ml-5 mr-5">
+          <label for="body">Body</label>
+          <input
+            type="body"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="body"
+            name="body"
+            placeholder="Body"
+            formControlName="body"
+            required
+            [status]="
+              f.body.dirty || f.body.touched
+                ? f.body.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <ng-container *ngIf="f.body.invalid && f.body.touched">
+            <span class="caption status-danger" *ngIf="f.body.errors?.required"
+              >Body is required!</span
+            >
+          </ng-container>
+        </div>
+        <button
+          class="ml-5 mr-5 mt-2 mb-3"
+          nbButton
+          hero="primary"
+          status="info"
+          size="small"
+          type="submit"
+          [disabled]="!postForm.valid"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

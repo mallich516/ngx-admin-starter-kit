@@ -1,0 +1,8 @@
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "tslint.enable": false,
+    "files.autoSave": "onWindowChange",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.fontFamily": "Hack, Consolas, monospace",
+    "editor.fontLigatures": true
+}

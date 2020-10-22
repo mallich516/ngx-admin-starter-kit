@@ -1,0 +1,50 @@
+<nb-card>
+    <nb-card-body>
+        <nb-layout>
+            <nb-layout-column>
+                <p>Add Allied Health</p>
+                <div class="row">
+                    <div class="col">
+                        <nb-select 
+                            shape="rectangle"
+                            fullWidth="true"
+                            name="title" 
+                            id="title"
+                            placeholder="Title *" >
+                            <nb-option value="0">Select Title</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col">
+                        <input nbInput size="small" shape="rectangle" fullWidth="true" name="firstName" id="firstName" placeholder="First Name *"/>
+                    </div>
+                    <div class="col">
+                        <input nbInput size="small" shape="rectangle" fullWidth="true" name="lastName" id="lastName" placeholder="Last Name *"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input nbInput shape="rectangle" fullWidth="true" type="email" name="email" id="email" placeholder="Email *">
+                    </div>
+                    <div class="col">
+                        <input nbInput shape="rectangle" fullWidth="true" type="number" name="phone" id="phone" placeholder="Contact Number *">
+                    </div>
+                    <div class="col">
+                        <textarea nbInput shape="rectangle" fullWidth="true" name="address" id="address" rows="3" placeholder="Address *"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input nbInput shape="rectangle" fullWidth="true" type="number" name="pincode" id="pincode" placeholder="Pincode *">
+                        <div class="col">
+                        </div>
+                        <nb-select shape="rectangle" fullWidth="true" id="catagory" placeholder="Catagoty *">
+                            <nb-option value="0">Select Catagory</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <button nbButton size="medium" hero="true"></button>
+            </nb-layout-column>
+        </nb-layout>
+    </nb-card-body>
+</nb-card>

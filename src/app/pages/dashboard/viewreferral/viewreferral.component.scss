@@ -1,0 +1,40 @@
+nb-layout-column {
+  background-color: white;
+}
+
+nb-card-body {
+  padding: 0%;
+  margin: 0%;
+}
+
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+p.head {
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  margin-top: 0%;
+  margin-bottom: 0.5rem;
+}
+
+p.foot {
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 0%;
+}
+p.header {
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+}

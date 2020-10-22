@@ -1,0 +1,201 @@
+<nb-card class="p-5">
+  <nb-card-body size="giant">
+    <!-- <div class="container">
+      <form [formGroup]="loginForm" (ngSubmit)="save()">
+        <nb-alert *ngIf="formSubmit" status="success">{{
+          alertMessage
+        }}</nb-alert>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input
+                nbInput
+                fieldSize="small"
+                fullWidth="true"
+                shape="semi-round"
+                id="fullName"
+                name="name"
+                formControlName="name"
+                placeholder="Full Name"
+                required
+                [status]="
+                  f.name.dirty || f.name.touched
+                    ? f.name.invalid
+                      ? 'danger'
+                      : 'success'
+                    : 'basic'
+                "
+              />
+              <ng-container *ngIf="f.name.invalid && f.name.touched">
+                <span
+                  class="caption status-danger"
+                  *ngIf="f.name.errors?.required"
+                >
+                  Username is required!
+                </span>
+                <span
+                  class="caption status-danger"
+                  *ngIf="f.name.errors?.minlength"
+                >
+                  Username must have minimum of 4 characters required!
+                </span>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="location">Select Location</label>
+              <nb-select
+                size="small"
+                shape="semi-round"
+                fullWidth="true"
+                id="location"
+                (selectedChange)="selectedLocation($event)"
+                formControlName="location"
+                placeholder="Select Location"
+              >
+                <nb-option
+                  [value]="location.location"
+                  *ngFor="let location of locations; let i = index"
+                >
+                  {{ location.location }}
+                </nb-option>
+              </nb-select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="d-flex flex-column justify-content-center">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  nbInput
+                  fieldSize="small"
+                  fullWidth="true"
+                  shape="semi-round"
+                  id="email"
+                  formControlName="email"
+                  placeholder="abc@gmail.com"
+                  required
+                  [status]="
+                    f.email.dirty || f.email.touched
+                      ? f.email.invalid
+                        ? 'danger'
+                        : 'success'
+                      : 'basic'
+                  "
+                />
+                <nb-container *ngIf="f.email.invalid && f.email.touched">
+                  <span
+                    class="caption status-danger"
+                    *ngIf="f.email.errors?.required"
+                    >Email is required!</span
+                  >
+                  <span
+                    class="caption status-danger"
+                    *ngIf="f.email.errors?.email"
+                    >Invalid Email Address!</span
+                  >
+                </nb-container>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  nbInput
+                  fieldSize="small"
+                  fullWidth="true"
+                  shape="semi-round"
+                  id="password"
+                  type="password"
+                  formControlName="password"
+                  placeholder="****"
+                  required
+                  [status]="
+                    f.password.dirty || f.password.touched
+                      ? f.password.invalid
+                        ? 'danger'
+                        : 'success'
+                      : 'basic'
+                  "
+                />
+                <ng-container *ngIf="f.password.invalid && f.password.touched">
+                  <span
+                    class="caption status-danger"
+                    *ngIf="f.password.errors?.required"
+                    >Password is required!</span
+                  >
+                  <span
+                    class="caption status-danger"
+                    *ngIf="
+                      f.password.errors?.minlength ||
+                      !f.password.errors?.maxLength
+                    "
+                    >Password must in between 6 to 8 charactors!</span
+                  >
+                  <span
+                    class="caption status-danger"
+                    *ngIf="f.password.errors?.pattern"
+                  >
+                    Password must have special characters, numbers, etc
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="radioBtn">Position</label>
+              <nb-radio-group id="radioBtn" formControlName="radioBtn">
+                <nb-radio
+                  [value]="radio.radio"
+                  *ngFor="let radio of radioBtns; let i = index"
+                  >{{ radio.radio }}</nb-radio
+                >
+              </nb-radio-group>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-around">
+          <nb-checkbox 
+            formControlName="checkBox"
+            (checkedChange)="changed($event)"
+            >Terms and Conditions
+          </nb-checkbox>
+          <nb-toggle
+            id="toggle"
+            state="off"
+            labelPosition="end"
+            formControlName="acceptOrReject"
+            (checkedChange)="changed($event)"
+            >Accept or Reject
+          </nb-toggle>
+        </div>
+        <div class="d-flex justify-content-around mt-3">
+          <button
+            nbButton
+            hero="primary"
+            status="info"
+            size="medium"
+            type="submit"
+            [disabled]="!loginForm.valid"
+          >
+            Save
+          </button>
+          <button
+            nbButton
+            hero="secondary"
+            status="info"
+            size="medium"
+            type="button"
+            (click)="reset()"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </div> -->
+    <div>Welcome to Dashboard</div>
+  </nb-card-body>
+</nb-card>

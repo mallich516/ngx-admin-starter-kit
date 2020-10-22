@@ -1,0 +1,30 @@
+<nb-card>
+    <nb-card-body>
+        <nb-layout>
+            <nb-layout-column style="background-color: white;">
+                <p>Allied Health Users</p>
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th style="text-align: center;">Actions</th>
+                    </tr>
+                    <tr *ngFor="let provider of alliedHealthUsers; let i = index;">
+                        <td>{{ provider.provider.name }}</td>
+                        <td>{{ provider.provider.speciality }}</td>
+                        <td><a href="#">{{ provider.provider.email }}</a></td>
+                        <td>{{ provider.provider.address }}</td>
+                        <td>
+                            <div class="d-flex justify-content-around">
+                                <i (click)="editUser(provider)" class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                <i (click)="deleteUser(provider)" class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+        </nb-layout-column>
+    </nb-layout>
+    </nb-card-body>
+</nb-card>

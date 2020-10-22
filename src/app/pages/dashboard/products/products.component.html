@@ -1,0 +1,34 @@
+<nb-card>
+    <nb-card-header>
+        <p>All Products</p>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="d-flex flex-wrap">
+                <div class="card" *ngFor="let product of products; index as i">
+                    <img src="https://moshiv3blob.azureedge.net/images/v3/campaignpage/campaign88068c44b5224a2e9361c510dc4036bd..jpg">
+                    <div class="d-flex justify-content-between brandRow">
+                        <div>
+                            <p class="brand">{{ product.brand }}</p>
+                        </div>
+                        <div>
+                            <p class="quantity">{{ product.quantity }}</p>
+                        </div>
+                    </div>
+                    <p class="name">{{ product.name }}</p>
+                    <div class="d-flex justify-content-between costRow">
+                        <div>
+                            <p class="cost">{{ product.cost }}</p>
+                        </div>
+                        <div>
+                            <p class="offerPercentage">{{ product.offerPercentage }}</p>
+                        </div>
+                        <div>
+                            <p class="offerRate">{{ product.offerRate }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

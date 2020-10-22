@@ -1,0 +1,92 @@
+<nb-card>
+  <nb-card-body class="scrollable-container">
+    <div class="mt-3">
+      <span class="h4">Login</span>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="d-flex justify-content-center flex-column">
+        <div class="form-group mt-5">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="email"
+            name="email"
+            placeholder="abcd@gmail.com"
+            formControlName="email"
+            required
+            [status]="
+              f.email.dirty || f.email.touched
+                ? f.email.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <nb-container *ngIf="f.email.invalid && f.email.touched">
+            <span class="caption status-danger" *ngIf="f.email.errors?.required"
+              >Email required!</span
+            >
+            <span class="caption status-danger" *ngIf="f.email.errors?.email"
+              >Enter Valid Email!</span
+            >
+          </nb-container>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="password"
+            name="password"
+            placeholder="********"
+            formControlName="password"
+            required
+            [status]="
+              f.password.dirty || f.password.touched
+                ? f.password.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <nb-container *ngIf="f.password.invalid && f.password.touched">
+            <span
+              class="caption status-danger"
+              *ngIf="f.password.errors?.required"
+              >Password required!</span
+            >
+          </nb-container>
+        </div>
+
+        <label class="forgetPassword">Forget Password?</label>
+
+        <button
+          class="mt-3 mb-5"
+          nbButton
+          hero="primary"
+          status="info"
+          size="small"
+          type="submit"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+
+        <label class="createNew">
+          Create a new Account?
+          <span 
+            class="signUp">
+            <a [routerLink]="['/auth/register']">Sign Up</a>
+          </span>
+        </label>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

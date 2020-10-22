@@ -1,0 +1,51 @@
+<nb-card>
+    <nb-card-body>
+        <nb-layout>
+            <nb-layout-column>
+                <p>Pending Referrals List</p>
+                <table class="table" *ngIf="pendingReferralsArray.length > 0">
+                    <!-- <thead> -->
+                        <tr>
+                            <th scope="col">Sno</th>
+                            <th scope="col">Patient Name</th>
+                            <th scope="col">Allied Health Name</th>
+                            <th scope="col">Last Modified On</th>
+                            <!-- <th scope="col">Comment</th> -->
+                            <!-- <th scope="col">Accepted On</th> -->
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    <!-- </thead> -->
+                    <!-- <tbody> -->
+                        <tr class="trRow" *ngFor="let referral of pendingReferralsArray; index as i;">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ referral.patient.patientName }}</td>
+                            <td>{{ referral.patient.refferalSent }}</td>
+                            <td>{{ referral.patient.referralAcceptedOn }}</td>
+                            <!-- <td>{{ referral.comment }}</td> -->
+                            <!-- <td>{{ referral.patient.alliedHealthName }}</td> -->
+                            <td></td>
+                            <td></td>
+                            <td class="d-flex flex-column">
+                                <button 
+                                    class="btn btn-success btn-sm">Accept
+                                </button>
+                                <button 
+                                    class="btn btn-danger btn-sm">Reject
+                                </button>
+                                <button 
+                                    class="btn btn-primary btn-sm" 
+                                    (click)="viewReferral(referral)">View
+                                </button>
+                            </td>
+                        </tr>
+                    <!-- </tbody> -->
+                </table>
+                <nb-alert status="info" size="medium" *ngIf="pendingReferralsArray.length == 0">
+                    No Pending Referrals!
+                </nb-alert>
+            </nb-layout-column>
+        </nb-layout>
+    </nb-card-body>
+</nb-card>

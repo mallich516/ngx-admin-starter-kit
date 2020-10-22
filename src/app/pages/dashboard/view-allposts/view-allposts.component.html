@@ -1,0 +1,35 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="primary">
+  <nb-card-body>
+    <table style="width: 100%; height: 100vh">
+      <nb-list>
+        <nb-list-item>
+          <tr class="d-flex">
+            <th>UserId</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th style="text-align: center">Action</th>
+          </tr>
+      </nb-list-item>
+        <nb-list-item *ngFor="let post of posts; let i = index">
+          <tr class="d-flex">
+            <td>{{ post.userId }}</td>
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.body }}</td>
+            <td style="text-align: center">
+              <button
+                nbButton
+                hero="true"
+                status="primary"
+                (click)="selectedPost(post)"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+        </nb-list-item>
+      </nb-list>
+    </table>
+  </nb-card-body>
+</nb-card>

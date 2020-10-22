@@ -1,0 +1,53 @@
+<nb-card>
+    <nb-card-header>
+        <p>View Referral</p>
+    </nb-card-header>
+    <nb-card-body>
+        <nb-layout>
+            <nb-layout-column>
+                <div class="row">
+                    <div class="col">
+                        <p class="header">Patient Details</p><br>
+                        <p class="head">Name</p>
+                        <p class="foot">{{ selectedReferral.patient.patientName }}</p><br>
+                        <p class="head">Gender</p>
+                        <p class="foot">{{ selectedReferral.patient.gender }}</p><br>
+                        <p class="head">Address</p>
+                        <p class="foot">{{ selectedReferral.patient.address }}</p><br>
+                        <p class="head">DOB</p>
+                        <p class="foot">{{ selectedReferral.patient.dob }}</p><br>
+                    </div>
+                    <div class="col">
+                        <p class="header">Practitioner Details</p><br>
+                        <p class="head">Name</p>
+                        <p class="foot">{{ selectedReferral.practitioner.name }}</p><br>
+                        <p class="head">Gender</p>
+                        <p class="foot">{{ selectedReferral.practitioner.gender }}</p><br>
+                        <p class="head">Address</p>
+                        <p class="foot">{{ selectedReferral.practitioner.address }}</p><br>
+                        <p class="head">DOB</p>
+                        <p class="foot">{{ selectedReferral.practitioner.dob }}</p><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="header">Provider Details</p><br>
+                        <p class="head">Name</p>
+                        <p class="foot">{{ selectedReferral.provider.name }}</p><br>
+                        <p class="head">Speciality</p>
+                        <p class="foot">{{ selectedReferral.provider.speciality }}</p><br>
+                        <p class="head">Address</p>
+                        <p class="foot">{{ selectedReferral.provider.address }}</p><br>
+                        <p class="head">Phone</p>
+                        <p class="foot">{{ selectedReferral.provider.phone }}</p><br>
+                        <p class="head">Email</p>
+                        <p class="foot">{{ selectedReferral.provider.email }}</p><br>
+                    </div>
+                </div>
+
+            </nb-layout-column>
+        </nb-layout>
+    </nb-card-body>
+</nb-card>
+

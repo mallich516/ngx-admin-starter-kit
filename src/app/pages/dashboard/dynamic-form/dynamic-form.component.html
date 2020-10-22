@@ -1,0 +1,160 @@
+<nb-card style="width: 100%; margin: 0; padding: 0;">
+    <nb-card-body>
+        <p>Dynamic Form</p>
+        <form [formGroup]="form" (ngSubmit)="saveFormDetails()">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="sno">Sno</label>
+                        <input 
+                            nbInput
+                            fieldSize="small"
+                            fullWidth="true"
+                            shape="semi-round"
+                            id="sno" 
+                            name="sno"
+                            placeholder="Sno" 
+                            formControlName="sno"
+                            required
+                            [status]="f.sno.dirty || f.sno.touched ? f.sno.invalid ? 'danger' : 'success' : 'basic'">
+                        <ng-container *ngIf="f.sno.invalid && f.sno.touched">
+                            <span 
+                                class="caption status-danger"
+                                *ngIf="f.sno.errors?.required">
+                                Sno is required!
+                            </span>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input
+                            nbInput 
+                            fieldSize="small"
+                            fullWidth="true"
+                            shape="semi-round" 
+                            id="name" 
+                            required
+                            placeholder="Name"  
+                            formControlName="name"
+                            [status]="f.name.dirty || f.name.touched ? f.name.invalid ? 'danger' : 'success' : 'basic'">
+                        <ng-container *ngIf="f.name.invalid && f.name.touched">
+                            <span 
+                                class="caption status-danger" 
+                                *ngIf="f.name.errors?.required">
+                                Name is required
+                            </span>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="rollNo">Roll No</label>
+                        <input 
+                            nbInput
+                            fieldSize="small"
+                            fullWidth="true"
+                            shape="semi-round"
+                            id="rollNo" 
+                            required
+                            placeholder="Roll No" 
+                            formControlName="rollNo"
+                            [status]="f.rollNo.touched || f.rollNo.dirty ? f.rollNo.invalid ? 'danger' : 'success' : 'basic'">
+                        <ng-container *ngIf="f.rollNo.touched && f.rollNo.invalid">
+                            <span 
+                                class="caption status-danger"
+                                *ngIf="f.rollNo.errors?.required">
+                                Roll No is required
+                            </span>
+                        </ng-container>
+                    </div>
+                </div>
+            </div> 
+            
+            <div formArrayName="list" *ngFor="let skill of listArray.controls; let i = index" class="row">
+                <div [formGroupName]="i" class="row">
+                    <div class="form-group col-4">
+                        <label for="skills">Skill</label>
+                        <input 
+                            nbInput
+                            fieldSize="small"
+                            fullWidth="true"
+                            shape="semi-round"
+                            formControlName="skills" 
+                            placeholder="Skill" 
+                            >
+                            <!-- [status]="i.skills.touched || i.skills.dirty ? i.skills.invalid ? 'danger' : 'success' : 'basic'"  -->
+                        <!-- <ng-container *ngIf="i.skills.invalid && i.skills.touched">
+                            <span 
+                                class="caption status-danger"
+                                *ngIf="i.skills.errors?.required">
+                                Skill is required
+                            </span>
+                        </ng-container> -->
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="exp">Experience</label>
+                        <input 
+                            nbInput
+                            fieldSize="small"
+                            fullWidth="true"
+                            shape="semi-round"
+                            formControlName="experience" 
+                            placeholder="Experience"
+                            >
+                            <!-- [status]="i.experience.touched || i.experience.dirty ? i.experience.invalid ? 'danger' : 'success' : basic" -->
+                        <!-- <ng-container *ngIf="i.experience.invalid && i.experience.touched">
+                            <span 
+                                class="caption status-danger"
+                                *ngIf="i.experience.errors?.required">
+                                Experience is required
+                            </span>
+                        </ng-container> -->
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="points">Points</label>
+                        <input 
+                            nbInput
+                            fieldSize="small"
+                            fullWidth="true"
+                            shape="semi-round"
+                            formControlName="points" 
+                            placeholder="Points">
+                            <!-- [status]="i.points.touched || i.points.dirty ? i.points.invalid ? 'danger' : 'success' : 'basic'"
+                        <ng-container *ngIf="i.points.invalid && i.points.touched">
+                            <span 
+                                class="caption status-danger"
+                                *ngIf="i.points.errors?.required">
+                                Points are required
+                            </span>
+                        </ng-container> -->
+                    </div>
+                    <div class="col-1">
+                        <button
+                            type="button" 
+                            class="btn btn-primary" 
+                            style="margin-top: 1.6em;" 
+                            (click)="addRow()"
+                        >+
+                        </button>
+                    </div>
+                    <div class="col-1">
+                        <button
+                            type="button"  
+                            class="btn btn-danger" 
+                            style="margin-top: 1.6em;" 
+                            *ngIf="listArray.length > 1"
+                            (click)="removeRow(i)"
+                        >-
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button 
+                type="submit" 
+                class="btn btn-primary" 
+                [disabled]="!form.valid">Submit</button>
+        </form>
+    </nb-card-body>
+</nb-card>

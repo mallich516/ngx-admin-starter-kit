@@ -1,0 +1,190 @@
+<nb-card>
+  <nb-card-body class="scrollable-container">
+    <div class="mt-2">
+      <span class="h4 ml-5">Signup</span>
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="submit()">
+      <div class="d-flex justify-content-center flex-column">
+        <div class="form-group mt-3 ml-5 mr-5">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="firstName"
+            name="firstName"
+            placeholder="First Name"
+            formControlName="firstName"
+            required
+            [status]="
+              f.firstName.dirty || f.firstName.touched
+                ? f.firstName.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <nb-container *ngIf="f.firstName.invalid && f.firstName.touched">
+            <span
+              class="caption status-danger"
+              *ngIf="f.firstName.errors?.required"
+              >First Name is required!</span
+            >
+          </nb-container>
+        </div>
+        <div class="form-group mt-2 ml-5 mr-5">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            formControlName="lastName"
+            required
+            [status]="
+              f.lastName.dirty || f.lastName.touched
+                ? f.lastName.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <nb-container *ngIf="f.lastName.invalid && f.lastName.touched">
+            <span
+              class="caption status-danger"
+              *ngIf="f.lastName.errors?.required"
+              >Last Name is required!</span
+            >
+          </nb-container>
+        </div>
+        <div class="form-group mt-2 ml-5 mr-5">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="email"
+            name="email"
+            placeholder="abcd@gmail.com"
+            formControlName="email"
+            required
+            [status]="
+              f.email.dirty || f.email.touched
+                ? f.email.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <nb-container *ngIf="f.email.invalid && f.email.touched">
+            <span class="caption status-danger" *ngIf="f.email.errors?.required"
+              >Email is required!</span
+            >
+            <span class="caption status-danger" *ngIf="f.email.errors?.email"
+              >Enter Valid Email!</span
+            >
+          </nb-container>
+        </div>
+        <div class="form-group mt-2 ml-5 mr-5">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="password"
+            name="password"
+            placeholder="********"
+            formControlName="password"
+            required
+            [status]="
+              f.password.dirty || f.password.touched
+                ? f.password.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <ng-container *ngIf="f.password.invalid && f.password.touched">
+            <span
+              class="caption status-danger"
+              *ngIf="f.password.errors?.required"
+              >Password is required!</span
+            >
+            <span
+              class="caption status-danger"
+              *ngIf="
+                f.password.errors?.minlength || !f.password.errors?.maxLength
+              "
+              >Password must in between 6 to 8 charactors!</span
+            >
+            <span
+              class="caption status-danger"
+              *ngIf="f.password.errors?.pattern"
+            >
+              Password must have special characters, numbers, etc
+            </span>
+          </ng-container>
+        </div>
+        <div class="form-group mt-2 ml-5 mr-5">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            nbInput
+            fieldSize="small"
+            fullWidth="true"
+            shape="rectangle"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="*********"
+            formControlName="confirmPassword"
+            required
+            pattern="{{ f.password.value }}"
+            [status]="
+              f.confirmPassword.dirty || f.confirmPassword.touched
+                ? f.confirmPassword.invalid
+                  ? 'danger'
+                  : 'success'
+                : 'basic'
+            "
+          />
+          <ng-container
+            *ngIf="f.confirmPassword.invalid && f.confirmPassword.touched"
+          >
+            <span
+              class="caption status-danger"
+              *ngIf="f.confirmPassword.errors?.required"
+              >Confirm Password is required!</span
+            >
+            <span
+              class="caption status-danger"
+              *ngIf="f.confirmPassword.errors?.pattern"
+            >
+              Password and Confirm Password Must be Same. 
+            </span>
+          </ng-container>
+        </div>
+        <button
+          class="ml-5 mr-5 mt-2 mb-3"
+          nbButton
+          hero="primary"
+          status="info"
+          size="small"
+          type="submit"
+          [disabled]="!signupForm.valid"
+          >
+          Signup
+        </button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

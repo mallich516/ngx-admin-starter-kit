@@ -1,0 +1,39 @@
+<nb-card>
+    <nb-card-body>
+        <nb-layout windowMode="true" withScroll="true">
+            <nb-layout-column>
+                <p>Accepted Referrals List</p>
+                <table class="table" *ngIf="acceptedReferralsArray.length > 0">
+                    <!-- <thead> -->
+                        <tr>
+                            <th scope="col">Sno</th>
+                            <th scope="col">Patient Name</th>
+                            <th scope="col">Referral Sent</th>
+                            <th scope="col">Allied Health Name</th>
+                            <th scope="col">Comment</th> 
+                            <th scope="col">Referral Accepted On</th>
+                            <!-- <th scope="col"></th> -->
+                        </tr>
+                    <!-- </thead> -->
+                    <!-- <tbody> -->
+                        <tr class="trRow" *ngFor="let referral of acceptedReferralsArray; index as i">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ referral.patient.patientName }}</td>
+                            <td>{{ referral.patient.refferalSent }}</td>
+                            <td>{{ referral.patient.alliedHealthName }}</td>
+                            <td>{{ referral.patient.comment }}</td> 
+                            <td>{{ referral.patient.referralAcceptedOn }}</td>
+                            <!-- <td><button (click)="viewReferral(referral)" class="btn btn-primary btn-sm">View</button></td> -->
+                        </tr>
+                    <!-- </tbody> -->
+                </table>
+                <nb-alert 
+                    status="info" 
+                    size="medium"
+                    *ngIf="acceptedReferralsArray.length == 0">
+                    No Accepted Referrals! 
+                </nb-alert>
+            </nb-layout-column>
+        </nb-layout>
+    </nb-card-body>
+</nb-card>
